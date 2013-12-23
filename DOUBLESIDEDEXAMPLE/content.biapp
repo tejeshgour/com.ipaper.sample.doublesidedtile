@@ -1,0 +1,33 @@
+<bi:biapp bi:version="1200" xmlns:bi="http://xml.sap.com/2011/biml/biapp" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/TR/REC-html40" xmlns:h="http://www.w3.org/TR/REC-html40" xmlns:sdk1="com.ipaper.sample.doublesidedtile" sdk1:version="1.0" xmlns:sdk2="com.ipaper.sample.htmltemplate" sdk2:version="1.0">
+	<bi:component name="APPLICATION_PROPERTIES" type="APPLICATION_PROPERTIES">
+		<bi:property name="THEME" value="sap_platinum"/>
+	</bi:component>
+	<bi:component name="ROOT" type="ABSOLUTE_LAYOUT_COMPONENT">
+		<bi:component name="CSS" type="com_ipaper_sample_htmltemplate_HTMLTemplate">
+			<bi:property name="LEFT_MARGIN" value="33"/>
+			<bi:property name="TOP_MARGIN" value="387"/>
+			<bi:property name="HTML" value="&lt;span id=&quot;csshandle&quot; style=&quot;display:none;background-color:yellow;&quot;&gt;CSS Injection Snippet - Hidden during runtime&lt;/span&gt;&#10;&lt;style&gt;&#10;  .kpiTitle, .kpiSubtitle, .kpi {&#10;    font-family : Helvetica, Arial, sans-serif;&#10;  }&#10;  .kpiTitle {&#10;    font-size : 3em;&#10;    color : #a0a0a0;&#10;  }&#10;  .kpi {&#10;    font-size : 3.25em;&#10;  }&#10;  .kpiSubtitle {&#10;    font-size : 1.25em;&#10;    font-weight : bold;&#10;  }&#10;&lt;/style&gt;"/>
+			<bi:property name="afterInit" value="if(sap &amp;&amp; sap.zen &amp;&amp; sap.zen.designmode) $(&quot;#csshandle&quot;).css({display : &quot;block&quot;});"/>
+			<bi:property name="WIDTH" value="187"/>
+			<bi:property name="HEIGHT" value="52"/>
+			<bi:property name="VISIBLE" value="X"/>
+		</bi:component>
+		<bi:component name="DOUBLESIDEDTILE_1" type="com_ipaper_sample_doublesidedtile_DoubleSidedTile">
+			<bi:property name="LEFT_MARGIN" value="33"/>
+			<bi:property name="TOP_MARGIN" value="35"/>
+			<bi:property name="frontHTML" value="&lt;span class=&quot;kpiTitle&quot;&gt;~title~&lt;/span&gt;&lt;br /&gt;&#10;&lt;span class=&quot;kpiSubtitle&quot;&gt;~subtitle~&lt;/span&gt;&lt;br /&gt;&#10;&lt;hr /&gt;&#10;&lt;span class=&quot;kpi&quot;&gt;~kpi~&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&#10;&lt;span style=&quot;font-size: 1.2em&quot;&gt;&#10;  &lt;strong&gt;Notable events - Q4:&lt;/strong&gt;&#10;&lt;ul&gt;&#10;  &lt;li&gt;Lower than expected fuel costs&lt;/li&gt;&#10;  &lt;li&gt;Ongoing high material costs&lt;/li&gt;&#10;  &lt;li&gt;One-time tax write-off&lt;/li&gt;&#10;&lt;/ul&gt;&#10;&lt;/span&gt;"/>
+			<bi:property name="backHTML" value="&lt;span class=&quot;kpiTitle&quot;&gt;~title~&lt;/span&gt;&lt;br /&gt;&#10;&lt;span class=&quot;kpiSubtitle&quot;&gt;~backsubtitle~&lt;/span&gt;&lt;br /&gt;&#10;&lt;hr /&gt;&#10;&lt;table style=&quot;width:100%;&quot;&gt;&#10;  &lt;tr&gt;&lt;td&gt;East&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;inlinesparkline&quot;&gt;1023,4567,3144,7140&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td&gt;West&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;inlinesparkline&quot;&gt;1352,4564,1244,7234&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td&gt;Central&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;inlinesparkline&quot;&gt;1456,4534,1244,7591&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&#10;&lt;/table&gt;"/>
+			<bi:property name="afterInit" value="if(sap &amp;&amp; sap.zen &amp;&amp; !sap.zen.designmode) { // Ignore design time&#10;  $(&apos;.inlinesparkline&apos;).sparkline(&quot;html&quot;,{&#10;   type:&quot;bar&quot;,&#10;   barWidth: 20,&#10;   height: 50,&#10;   chartRangeMin : 0&#10; });&#10;}"/>
+			<bi:property name="term1" value="~title~"/>
+			<bi:property name="replacement1" value="Sales"/>
+			<bi:property name="term2" value="~subtitle~"/>
+			<bi:property name="replacement2" value="2013"/>
+			<bi:property name="WIDTH" value="261"/>
+			<bi:property name="HEIGHT" value="227"/>
+			<bi:property name="term3" value="~kpi~"/>
+			<bi:property name="replacement3" value="$1,346,000"/>
+			<bi:property name="term4" value="~backsubtitle~"/>
+			<bi:property name="replacement4" value="Top 3 Regions"/>
+		</bi:component>
+	</bi:component>
+</bi:biapp>
